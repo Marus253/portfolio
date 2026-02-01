@@ -1,0 +1,16 @@
+<svg width="512" height="600" viewBox="0 0 512 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond transparent -->
+
+  <!-- Groupe du monogramme -->
+  <g fill="none" stroke="#0A2540" stroke-width="40" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- Lettre W -->
+    <path d="M 96 128 L 160 384 L 256 192 L 352 384 L 416 128" />
+    <!-- Lettre M -->
+    <path d="M 96 384 L 96 128 L 256 256 L 416 128 L 416 384" />
+  </g>
+
+  <!-- Texte discret en dessous -->
+  <text x="50%" y="530" text-anchor="middle" fill="#0A2540" font-family="Inter, sans-serif" font-size="40" letter-spacing="2">
+    Software • Security • AI
+  </text>
+</svg>

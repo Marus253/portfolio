@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warren Musau | Software • Security • AI</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+</head>
+<body class="light-mode">
+    <!-- Mode Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le mode sombre/clair">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo-container">
+                    <div class="logo-svg">
+                        <img src="assets/logo.svg" alt="Warren Musau Logo" width="40" height="40">
+                    </div>
+                    <span class="logo-text">Software • Security • AI</span>
+                </div>
+                
+                <!-- Navigation Desktop -->
+                <nav class="nav-desktop">
+                    <a href="#home" class="nav-link">Accueil</a>
+                    <a href="#about" class="nav-link">À propos</a>
+                    <a href="#skills" class="nav-link">Compétences</a>
+                    <a href="#projects" class="nav-link">Projets</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="mobile-menu-button" aria-label="Menu mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="mobile-menu">
+                <a href="#home" class="mobile-nav-link">Accueil</a>
+                <a href="#about" class="mobile-nav-link">À propos</a>
+                <a href="#skills" class="mobile-nav-link">Compétences</a>
+                <a href="#projects" class="mobile-nav-link">Projets</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Je construis des systèmes <span class="highlight">sécurisés</span> et <span class="highlight">intelligents</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Développeur passionné par la sécurité informatique et l'intelligence artificielle. 
+                        Je crée des solutions robustes avec une approche méthodique.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn-primary">
+                            Voir mes projets
+                        </a>
+                        <a href="#contact" class="btn-secondary">
+                            Me contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-circle">
+                        <div class="circle-inner">
+                            <img src="assets/logo.svg" alt="Warren Musau Logo" width="120" height="120">
+                        </div>
+                        <div class="circle-decoration-1"></div>
+                        <div class="circle-decoration-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos</h2>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder">
+                            <img src="assets/images/warren photo.jpeg" alt="Photo de Warren Musau" class="profile-image">
+                        </div>
+                        <div class="image-badge">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h3 class="about-name">Warren Musau</h3>
+                    <p class="about-description">
+                        Étudiant en informatique passionné par le développement logiciel, la sécurité des systèmes et l'intelligence artificielle. 
+                        Je m'intéresse particulièrement à la création de solutions qui allient robustesse, sécurité et innovation.
+                    </p>
+                    <p class="about-description">
+                        Mon approche est méthodique, axée sur la qualité du code et la sécurité dès la conception. 
+                        J'aime apprendre et explorer de nouvelles technologies pour résoudre des problèmes concrets.
+                    </p>
+                    
+                    <div class="about-links">
+                        <a href="https://github.com/Marus253" target="_blank" class="social-link github">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/emmanuel-musau-08b986309" target="_blank" class="social-link linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="assets/cv musau.pdf" target="_blank" class="social-link cv">
+                            <i class="fas fa-file-pdf"></i> CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <p class="section-subtitle">
+                Compétences en cours d'acquisition, validées par la pratique sur des projets concrets.
+            </p>
+            
+            <div class="skills-grid">
+                <!-- Langages -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Langages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 30%"></div>
+                            </div>
+                            <span class="skill-percent">30%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PHP</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 40%"></div>
+                            </div>
+                            <span class="skill-percent">40%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend & systèmes -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend & systèmes</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Django 
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> APIs REST (principes)
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Gestion de fichiers
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> MySQL
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> POSTGRESQL (notions)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IA & automatisation -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>IA & automatisation</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> OCR (OpenCV, EasyOCR)
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Pré-traitement d'images
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Scripts d'automatisation
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Outils -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Outils</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Git & GitHub
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Linux (bases)
+                        </div>
+                        <div class="skill-tag">
+                            <i class="fas fa-check"></i> Docker (notions)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Expérimentations & Projets</h2>
+            <p class="section-subtitle">
+                Projets d'apprentissage visant à comprendre des concepts techniques concrets.
+            </p>
+            
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">OCR – Extraction de texte depuis images</h3>
+                        <span class="project-badge badge-ia">
+                            <i class="fas fa-flask"></i> Expérimentation IA
+                        </span>
+                    </div>
+                    
+                    <p class="project-description">
+                        Prototype permettant d'extraire automatiquement du texte à partir d'images après un pré-traitement (niveaux de gris, seuils).
+                    </p>
+                    
+                    <div class="project-learned">
+                        <h4><i class="fas fa-graduation-cap"></i> Ce que j'ai appris</h4>
+                        <ul>
+                            <li>Importance du pré-traitement pour la précision OCR</li>
+                            <li>Manipulation d'images avec OpenCV</li>
+                            <li>Utilisation de bibliothèques IA existantes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">EasyOCR</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Marus253/ocr-experiment" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Scripts Python d'automatisation</h3>
+                        <span class="project-badge badge-learning">
+                            <i class="fas fa-code"></i> Apprentissage
+                        </span>
+                    </div>
+                    
+                    <p class="project-description">
+                        Scripts simples pour automatiser des tâches répétitives (gestion de fichiers, renommage, extraction de données).
+                    </p>
+                    
+                    <div class="project-learned">
+                        <h4><i class="fas fa-graduation-cap"></i> Ce que j'ai appris</h4>
+                        <ul>
+                            <li>Structuration de scripts Python</li>
+                            <li>Gestion des erreurs et logs</li>
+                            <li>Importance de la lisibilité du code</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">os module</span>
+                        <span class="tech-tag">shutil</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Marus253/python-scripts" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Backend Django – CRUD basique</h3>
+                        <span class="project-badge badge-backend">
+                            <i class="fab fa-python"></i> Backend
+                        </span>
+                    </div>
+                    
+                    <p class="project-description">
+                        Application backend simple permettant de créer, lire, modifier et supprimer des données via une interface basique.
+                    </p>
+                    
+                    <div class="project-learned">
+                        <h4><i class="fas fa-graduation-cap"></i> Ce que j'ai appris</h4>
+                        <ul>
+                            <li>Organisation d'un projet Django</li>
+                            <li>Modèles, vues et routes</li>
+                            <li>Connexion à une base de données MySQL</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/Marus253/django-crud" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-footer">
+                <a href="https://github.com/Marus253?tab=repositories" target="_blank" class="btn-view-all">
+                    Voir tous mes projets sur GitHub <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Restons en contact</h3>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:warrenmusau5@gmail.com">warrenmusau5@gmail.com</a>
+                                <p>Réponse sous 24h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/emmanuel-musau-08b986309" target="_blank">linkedin.com/in/emmanuel-musau</a>
+                                <p>Profil professionnel</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Marus253" target="_blank">github.com/Marus253</a>
+                                <p>Code source et projets</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-availability">
+                        <h4>Ce que je recherche :</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Retours sur mon code et projets</li>
+                            <li><i class="fas fa-check"></i> Conseils d'apprentissage</li>
+                            <li><i class="fas fa-check"></i> Opportunités de collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="100" height="100" fill="white" rx="10"/>
+                            <text x="50%" y="50%" text-anchor="middle" dy="0.35em" font-family="Inter" font-weight="700" font-size="40" fill="#3B82F6">WM</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Warren Musau</h4>
+                        <p>Software • Security • AI</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#home">Accueil</a>
+                    <a href="#about">À propos</a>
+                    <a href="#skills">Compétences</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/emmanuel-musau-08b986309" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Marus253" target="_blank" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:warrenmusau5@gmail.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Warren Musau. Tous droits réservés.</p>
+                <p>Portfolio développé avec HTML, CSS, JavaScript et une approche honnête.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
