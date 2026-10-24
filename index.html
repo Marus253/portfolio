@@ -1,187 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warren Musau | Architecte Backend & Systèmes</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav>
-        <div class="container nav-content">
-            <a href="#" class="logo">W.MUSAU</a>
-            <div class="nav-links">
-                <a href="#about">À propos</a>
-                <a href="#skills">Compétences</a>
-                <a href="#projects">Projets</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container">
-        
-        <section class="hero" id="home">
-            <div class="hero-text">
-                <span class="hero-tag">Développeur Backend & Systèmes</span>
-                <h1>Construire des systèmes fiables et sécurisés.</h1>
-                <p class="hero-p">Ingénieur logiciel axé sur la conception d'architectures robustes, l'automatisation intelligente et la cybersécurité défensive.</p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                    <a href="cv-warren-musau.pdf" class="btn btn-secondary" download><i class="fas fa-download"></i> Mon CV</a>
-                </div>
-            </div>
-            <div class="hero-img-wrapper">
-                <img src="assets/images/warren photo.jpeg" alt="Warren Musau" class="profile-img">
-            </div>
-        </section>
-
-        <section class="about-grid" id="about">
-            <div>
-                <h2 class="about-title">Approche de l'Ingénierie</h2>
-                <div class="social-links">
-                    <a href="https://github.com/Marus253" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/emmanuel-musau-08b986309" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:warrenmusau5@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="glass" style="padding: 2.5rem;">
-                <p class="about-p">Je ne me contente pas de coder ; je conçois des systèmes. Mon parcours est guidé par une discipline rigoureuse axée sur la résolution de problèmes réels à travers des architectures backend évolutives.</p>
-                <p class="about-p">Spécialisé en <strong>Python/Django</strong>, je m'intéresse particulièrement à l'intégrité des flux de données. Ma curiosité m'a amené à explorer l'IA pour l'automatisation (OCR) et le développement mobile avec Flutter pour comprendre l'intégralité du cycle de vie d'un produit.</p>
-                <p class="about-p">Actuellement, j'approfondis mes compétences en <strong>cybersécurité</strong> pour intégrer une dimension défensive dès la phase de conception.</p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="section-header">
-                <h2 class="about-title">Expertise Technique</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="glass skill-card">
-                    <h3><i class="fas fa-server"></i> Backend & Systèmes</h3>
-                    <ul class="skill-list">
-                        <li>Architecture Django / Flask</li>
-                        <li>API RESTful Design</li>
-                        <li>MySQL & PostgreSQL</li>
-                        <li>Administration Linux</li>
-                    </ul>
-                </div>
-                <div class="glass skill-card">
-                    <h3><i class="fas fa-code"></i> Langages</h3>
-                    <ul class="skill-list">
-                        <li>Python (Maîtrise active)</li>
-                        <li>JavaScript / PHP</li>
-                        <li>Dart (Flutter basics)</li>
-                    </ul>
-                </div>
-                <div class="glass skill-card">
-                    <h3><i class="fas fa-brain"></i> IA & Auto</h3>
-                    <ul class="skill-list">
-                        <li>Computer Vision (OpenCV)</li>
-                        <li>OCR & Data Parsing</li>
-                        <li>Workflow Automation</li>
-                    </ul>
-                </div>
-                <div class="glass skill-card">
-                    <h3><i class="fas fa-shield-halved"></i> Outils & Sécurité</h3>
-                    <ul class="skill-list">
-                        <li>Git / GitHub Workflow</li>
-                        <li>Docker (Notions)</li>
-                        <li>OWASP Fundamentals</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" style="padding: 100px 0;">
-            <div class="section-header">
-                <h2 class="about-title">Systèmes & Expérimentations</h2>
-            </div>
-            
-            <div class="projects-stack">
-                <div class="glass project-card">
-                    <div class="project-content">
-                        <span class="project-status">En cours – Système Réel</span>
-                        <h3>SIGIR</h3>
-                        <p class="project-desc">Gestion des infractions routières (RDC). Automatisation des flux de travail et sécurisation des paiements.</p>
-                        <div class="project-learned">
-                            <h4>Problématique :</h4>
-                            <p>Centralisation et transparence du suivi des infractions dans un environnement complexe.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Django</span><span class="tech-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass project-card">
-                    <div class="project-content">
-                        <span class="project-status">Finalisé</span>
-                        <h3>PharmaStock</h3>
-                        <p class="project-desc">Gestion de stock critique avec monitoring intelligent des dates de péremption.</p>
-                        <div class="project-learned">
-                            <h4>Apprentissage :</h4>
-                            <p>Optimisation des requêtes SQL pour la gestion d'inventaires périssables.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass project-card">
-                    <div class="project-content">
-                        <span class="project-status">Recherche IA</span>
-                        <h3>Vision-V</h3>
-                        <p class="project-desc">Reconnaissance automatique des plaques d'immatriculation via vision par ordinateur.</p>
-                        <div class="project-learned">
-                            <h4>Apprentissage :</h4>
-                            <p>Traitement d'image (OpenCV) et intégration de modèles OCR.</p>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="contact-grid">
-                <div>
-                    <h2 class="about-title">Collaboration</h2>
-                    <p class="about-p">Disponible pour des opportunités Backend ou Freelance technique.</p>
-                    <div class="contact-info-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <p>warrenmusau5@gmail.com</p>
-                    </div>
-                    <div class="contact-info-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <p>+243 842 038 593</p>
-                    </div>
-                </div>
-
-                <div class="glass" style="padding: 2rem;">
-                    <form id="portfolioContact">
-                        <div class="form-group"><input type="text" placeholder="Nom" required></div>
-                        <div class="form-group"><input type="email" placeholder="Email" required></div>
-                        <div class="form-group"><textarea rows="4" placeholder="Message" required></textarea></div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Warren Musau — Build for Reliability.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="Warren Musau — développeur backend & systèmes basé à Kinshasa. Architectures fiables, automatisation et cybersécurité défensive." />
+    <meta property="og:title" content="Warren Musau — Backend & Systèmes" />
+    <meta property="og:description" content="Architectures backend fiables, automatisation intelligente et cybersécurité défensive." />
+    <meta property="og:image" content="./images/warren.jpeg" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <title>Warren Musau — Backend & Systèmes</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
