@@ -11,20 +11,28 @@ export default function HlsVideo({ className = "" }: { className?: string }) {
     if (!video) return;
     let hls: Hls | undefined;
     let cancelled = false;
-    if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      // Safari / iOS : HLS natif
+    const native = () => {
       video.src = HLS_SRC;
       video.play().catch(() => {});
-    } else {
-      // Chargé à la demande pour alléger le bundle initial
-      import("hls.js").then(({ default: HlsLib }) => {
-        if (cancelled || !HlsLib.isSupported()) return;
-        hls = new HlsLib({ capLevelToPlayerSize: true });
-        hls.loadSource(HLS_SRC);
-        hls.attachMedia(video);
-        video.play().catch(() => {});
+    };
+    // hls.js partout où MediaSource existe (Chrome, Edge, Firefox) ;
+    // HLS natif seulement sans MSE (Safari iOS). Chrome répond « maybe » à
+    // canPlayType HLS sans savoir le lire, d'où cet ordre.
+    import("hls.js")
+      .then(({ default: HlsLib }) => {
+        if (cancelled) return;
+        if (HlsLib.isSupported()) {
+          hls = new HlsLib({ capLevelToPlayerSize: true });
+          hls.loadSource(HLS_SRC);
+          hls.attachMedia(video);
+          video.play().catch(() => {});
+        } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+          native();
+        }
+      })
+      .catch(() => {
+        if (!cancelled && video.canPlayType("application/vnd.apple.mpegurl")) native();
       });
-    }
     return () => {
       cancelled = true;
       hls?.destroy();

@@ -35,7 +35,7 @@ export default function Hero({ ready }: { ready: boolean }) {
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg to-transparent" />
 
-      <div className="relative z-10 flex flex-col items-center px-6 pt-20 text-center">
+      <div className="relative z-10 flex flex-col items-center px-6 pb-28 pt-24 text-center">
         <span className="blur-in mb-8 text-xs uppercase tracking-[0.3em] text-muted opacity-0">Portfolio '26</span>
         <h1 className="name-reveal mb-6 font-display text-6xl italic leading-[0.9] tracking-tight text-text-primary opacity-0 md:text-8xl lg:text-9xl">
           {profile.firstName} {profile.lastName}
@@ -62,7 +62,7 @@ export default function Hero({ ready }: { ready: boolean }) {
         type="button"
         onClick={() => scrollToId("work")}
         aria-label="Défiler vers les projets"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3"
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3 [@media(max-height:700px)]:hidden"
       >
         <span className="text-xs uppercase tracking-[0.2em] text-muted">Défiler</span>
         <span className="relative h-10 w-px overflow-hidden bg-stroke">
