@@ -1,4 +1,4 @@
-import type { Visual } from "../data";
+import type { Visual } from "../data/projects";
 
 // Visuels génératifs (pas de photos de stock) : chaque projet a sa propre maquette abstraite.
 
@@ -158,6 +158,69 @@ function Hospital() {
   );
 }
 
+
+function Bma() {
+  const bars = [42, 64, 51, 78, 60, 88, 72];
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_25%_25%,#26364a_0%,#0d1218_55%,#0a0a0a_100%)] p-6 md:p-10">
+      <div className="flex h-[74%] w-[88%] max-w-[560px] flex-col gap-3 rounded-xl border border-white/10 bg-[#0f141a] p-4 shadow-2xl shadow-black/60">
+        <div className="flex items-center justify-between">
+          <p className="font-display text-lg italic text-white md:text-xl">Inscriptions</p>
+          <span className="rounded-full bg-white/5 px-2 py-0.5 text-[9px] text-white/50">Administration</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          {[["Apprenants", "—"], ["Formations", "—"], ["Sessions", "—"]].map(([k, v]) => (
+            <div key={k} className="rounded-lg bg-white/[0.04] p-2">
+              <p className="text-[9px] text-white/40">{k}</p>
+              <p className="mt-1 h-2 w-10 rounded-full bg-white/20" aria-label={v} />
+            </div>
+          ))}
+        </div>
+        <div className="flex flex-1 items-end gap-2 rounded-lg bg-white/[0.02] p-3">
+          {bars.map((h, i) => (
+            <span key={i} className={`flex-1 rounded-t ${i === 5 ? "accent-gradient" : "bg-white/15"}`} style={{ height: `${h}%` }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SecPipeline() {
+  const steps = [
+    { n: "build", ok: true },
+    { n: "tests", ok: true },
+    { n: "sast", ok: false },
+    { n: "deps", ok: true },
+    { n: "deploy", ok: null },
+  ];
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_50%_100%,#22344a_0%,#0c1117_60%,#0a0a0a_100%)] p-6">
+      <div className="w-full max-w-[460px] rounded-xl border border-white/10 bg-[#0f141a]/95 p-5 font-mono shadow-2xl shadow-black/60">
+        <p className="mb-4 text-[10px] text-white/40">.github/workflows/secpipeline.yml</p>
+        <div className="flex items-center">
+          {steps.map((s, i) => (
+            <div key={s.n} className="flex flex-1 items-center last:flex-none">
+              <div className="flex flex-col items-center gap-2">
+                <span
+                  className={`flex h-7 w-7 items-center justify-center rounded-full text-[11px] ${
+                    s.ok === true ? "bg-emerald-400/15 text-emerald-300" : s.ok === false ? "bg-rose-400/15 text-rose-300" : "bg-white/5 text-white/30"
+                  }`}
+                >
+                  {s.ok === true ? "✓" : s.ok === false ? "✕" : "·"}
+                </span>
+                <span className="text-[9px] text-white/50 md:text-[10px]">{s.n}</span>
+              </div>
+              {i < steps.length - 1 && <span className="mx-1 mb-5 h-px flex-1 bg-white/10" />}
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 rounded bg-rose-400/10 px-2 py-1.5 text-[10px] text-rose-200/80">sast · 1 problème bloquant · livraison arrêtée</p>
+      </div>
+    </div>
+  );
+}
+
 export default function ProjectVisual({ visual }: { visual: Visual }) {
   switch (visual) {
     case "sigir":
@@ -166,7 +229,11 @@ export default function ProjectVisual({ visual }: { visual: Visual }) {
       return <Vision />;
     case "pharma":
       return <Pharma />;
-    case "hospital":
+    case "mediflow":
       return <Hospital />;
+    case "bma":
+      return <Bma />;
+    case "secpipeline":
+      return <SecPipeline />;
   }
 }

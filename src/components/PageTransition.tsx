@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 // Rideau sombre qui glisse entre deux pages + fondu du contenu
 export default function PageTransition({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <motion.div

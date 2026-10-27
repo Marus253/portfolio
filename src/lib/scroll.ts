@@ -1,10 +1,8 @@
-export const NAV_OFFSET = 88;
+import { useEffect } from "react";
+
+export const NAV_OFFSET = 96;
 
 export function scrollToId(id: string) {
-  if (id === "home") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
   const el = document.getElementById(id);
   if (!el) return;
   const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
@@ -12,3 +10,11 @@ export function scrollToId(id: string) {
 }
 
 export const easeOut = [0.25, 0.1, 0.25, 1] as const;
+
+const SITE = "Warren Musau — Développeur backend";
+export function useTitle(title?: string, description?: string) {
+  useEffect(() => {
+    document.title = title ? `${title} · Warren Musau` : SITE;
+    if (description) document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+  }, [title, description]);
+}

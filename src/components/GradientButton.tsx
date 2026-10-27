@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   children: ReactNode;
   href?: string;
+  to?: string;
   onClick?: () => void;
   variant?: "solid" | "outline" | "ghost";
   className?: string;
@@ -11,7 +13,7 @@ type Props = {
 };
 
 // Bouton pilule avec anneau dégradé animé au survol
-export default function GradientButton({ children, href, onClick, variant = "outline", className = "", download, external }: Props) {
+export default function GradientButton({ children, href, to, onClick, variant = "outline", className = "", download, external }: Props) {
   const base =
     "group relative inline-flex items-center justify-center gap-2 rounded-full text-sm transition-all duration-300 hover:scale-105";
   const skin =
@@ -33,6 +35,13 @@ export default function GradientButton({ children, href, onClick, variant = "out
   );
 
   const cls = `${base} ${skin} ${size} isolate ${className}`;
+  if (to) {
+    return (
+      <Link to={to} className={cls}>
+        {inner}
+      </Link>
+    );
+  }
   if (href) {
     return (
       <a href={href} className={cls} download={download} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const WORDS = ["Concevoir", "Sécuriser", "Automatiser"];
-const DURATION = 2700;
+const DURATION = 1400;
 
 export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   const [count, setCount] = useState(0);
@@ -26,7 +26,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
   }, [onComplete]);
 
   useEffect(() => {
-    const id = setInterval(() => setWord((w) => (w + 1) % WORDS.length), 900);
+    const id = setInterval(() => setWord((w) => (w + 1) % WORDS.length), 460);
     return () => clearInterval(id);
   }, []);
 
