@@ -14,6 +14,8 @@ export const profile = {
   cv: "cv-warren-musau.pdf",
   cvUpdated: "octobre 2026",
   photo: "images/warren.jpeg",
+  cutout: "images/warren-detoure.webp", // portrait détouré (hero)
+  logo: "images/shibi.webp", // avatar « shibi » utilisé comme logo
   headline: "Je conçois des logiciels qui répondent à de vrais besoins métier.",
   pitch:
     "Je développe des applications backend et des solutions logicielles en portant une attention particulière à la fiabilité, aux données, aux tests et à la sécurité.",

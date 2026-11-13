@@ -21,73 +21,78 @@ const techCount = new Set(projects.flatMap((p) => p.stack)).size;
 function Hero() {
   return (
     <section className="px-3 pt-16 md:px-4">
-      <div className="relative flex min-h-[calc(100svh-5rem)] flex-col overflow-hidden rounded-3xl bg-accent px-5 pb-5 pt-10 md:pt-12 text-bg md:px-10 md:pb-8">
+      <div className="relative min-h-[calc(100svh-5rem)] overflow-hidden rounded-3xl bg-accent text-bg md:min-h-[44rem]">
         {/* Nom en filigrane, en haut */}
         <p aria-hidden="true" className="font-display text-giant pointer-events-none absolute -top-[0.12em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-bg/[0.06]">
           {profile.lastName}
         </p>
 
-        <div className="relative flex flex-1 flex-col gap-8 md:flex-row md:justify-between">
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="max-w-[17rem]">
-            <p className="text-xs font-semibold uppercase leading-relaxed tracking-wide">{profile.headline}</p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <Link to="/contact" className="rounded-full bg-bg px-4 py-2 text-xs font-medium text-text-primary transition-colors hover:bg-bg/85">
-                Discuter d'un projet
-              </Link>
-              <a href={profile.cv} download className="inline-flex items-center gap-1.5 rounded-full border border-bg/30 px-4 py-2 text-xs font-medium transition-colors hover:bg-bg/10">
-                CV <Icon name="download" size={12} />
-              </a>
-            </div>
-          </motion.div>
-
+        {/* Portrait détouré, posé sur le bas du bloc (sans cadre) */}
+        <div className="pointer-events-none absolute bottom-0 left-1/2 h-[66%] -translate-x-1/2 md:left-[56%] md:h-[94%]">
           <motion.img
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease, delay: 0.1 }}
-            src={profile.photo}
-            alt={`Portrait de ${profile.fullName}`}
-            width={842}
-            height={1280}
-            className="aspect-[4/5] w-full max-w-[20rem] self-center rounded-2xl object-cover object-top shadow-2xl shadow-bg/30 md:absolute md:left-1/2 md:top-0 md:w-[26vw] md:max-w-[22rem] md:-translate-x-1/2"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.2 }}
-            className="hidden w-48 self-start rounded-xl bg-bg/90 p-3 text-text-primary md:block"
-          >
-            <p className="flex items-center gap-2 text-[11px] text-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Disponible
-            </p>
-            <p className="mt-2 text-sm font-medium leading-snug">{profile.city}</p>
-            <p className="text-xs text-muted">sur place ou à distance</p>
-          </motion.div>
+            transition={{ duration: 0.9, ease, delay: 0.1 }}
+            src={profile.cutout}
+            alt={`Portrait de ${profile.fullName}`}
+            width={771}
+            height={1201}
+            className="h-full w-auto max-w-none select-none object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)]"
+          />
         </div>
 
-        <div className="relative mt-10 flex items-end justify-between gap-6">
-          <div>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide md:mb-0">
-              #{new Date().getFullYear()} · {profile.title}
-            </p>
-            <h1 className="font-display text-giant leading-[0.78] tracking-[-0.06em]">
-              <span className="sr-only">{profile.fullName} — </span>
-              {profile.firstName}
-            </h1>
+        <div className="relative z-10 flex min-h-[inherit] flex-col justify-between px-5 pb-5 pt-10 md:px-10 md:pb-8 md:pt-12">
+          <div className="flex justify-between gap-6">
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="max-w-[17rem]">
+              <p className="text-xs font-semibold uppercase leading-relaxed tracking-wide">{profile.headline}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                <Link to="/contact" className="rounded-full bg-bg px-4 py-2 text-xs font-medium text-text-primary transition-colors hover:bg-bg/85">
+                  Discuter d'un projet
+                </Link>
+                <a href={profile.cv} download className="inline-flex items-center gap-1.5 rounded-full border border-bg/30 px-4 py-2 text-xs font-medium transition-colors hover:bg-bg/10">
+                  CV <Icon name="download" size={12} />
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease, delay: 0.2 }}
+              className="hidden w-48 self-start rounded-xl bg-bg/90 p-3 text-text-primary md:block"
+            >
+              <p className="flex items-center gap-2 text-[11px] text-muted">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Disponible
+              </p>
+              <p className="mt-2 text-sm font-medium leading-snug">{profile.city}</p>
+              <p className="text-xs text-muted">sur place ou à distance</p>
+            </motion.div>
           </div>
-          <Link
-            to="/a-propos"
-            className="group mb-2 hidden shrink-0 items-center gap-3 rounded-xl bg-bg p-2 pr-3 text-text-primary transition-colors hover:bg-surface lg:flex"
-          >
-            <img src={profile.photo} alt="" className="h-12 w-12 rounded-lg object-cover object-top" />
-            <span className="text-xs">
-              <span className="block font-medium">{profile.fullName}</span>
-              <span className="text-muted">{profile.title}</span>
-            </span>
-            <span className="ml-2 grid h-7 w-7 place-items-center rounded-md bg-text-primary text-bg transition-transform group-hover:rotate-45">
-              <Icon name="arrow-up-right" size={14} />
-            </span>
-          </Link>
+
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide md:mb-0">
+                #{new Date().getFullYear()} · {profile.title}
+              </p>
+              <h1 className="font-display text-giant leading-[0.78] tracking-[-0.06em]">
+                <span className="sr-only">{profile.fullName} — </span>
+                {profile.firstName}
+              </h1>
+            </div>
+            <Link
+              to="/a-propos"
+              className="group mb-2 hidden shrink-0 items-center gap-3 rounded-xl bg-bg p-2 pr-3 text-text-primary transition-colors hover:bg-surface xl:flex"
+            >
+              <img src={profile.logo} alt="" className="h-12 w-12 rounded-lg bg-surface object-contain p-0.5" />
+              <span className="text-xs">
+                <span className="block font-medium">{profile.fullName}</span>
+                <span className="text-muted">{profile.title}</span>
+              </span>
+              <span className="ml-2 grid h-7 w-7 place-items-center rounded-md bg-text-primary text-bg transition-transform group-hover:rotate-45">
+                <Icon name="arrow-up-right" size={14} />
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

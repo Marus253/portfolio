@@ -46,9 +46,12 @@ export default function Navbar() {
         }`}
       >
         <nav aria-label="Navigation principale" className="mx-auto flex h-16 max-w-[1320px] items-center justify-between px-6 md:px-10 lg:px-16">
-          <Link to="/" aria-label="Accueil" className="font-display text-xl normal-case tracking-tight text-text-primary">
-            {profile.lastName}
-            <sup className="ml-0.5 text-[10px] font-medium">®</sup>
+          <Link to="/" aria-label="Accueil" className="group flex items-center gap-2.5 font-display text-xl normal-case tracking-tight text-text-primary">
+            <img src={profile.logo} alt="" width={40} height={40} className="h-10 w-10 transition-transform duration-300 group-hover:-rotate-6" />
+            <span>
+              {profile.lastName}
+              <sup className="ml-0.5 text-[10px] font-medium">®</sup>
+            </span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">

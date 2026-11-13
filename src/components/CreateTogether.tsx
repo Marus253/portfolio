@@ -37,7 +37,8 @@ export default function CreateTogether() {
       <Container>
         <div className="mesh relative grid gap-10 overflow-hidden rounded-3xl p-4 md:grid-cols-[minmax(0,380px)_1fr] md:p-6">
           <div className="rounded-2xl bg-white text-neutral-900">
-            <div className="rounded-t-2xl bg-bg px-6 py-5 text-text-primary">
+            <div className="flex items-center gap-3 rounded-t-2xl bg-bg px-6 py-4 text-text-primary">
+              <img src={profile.logo} alt="" className="h-9 w-9" />
               <p className="font-display text-lg normal-case tracking-tight">
                 {profile.firstName}
                 <sup className="ml-0.5 text-[9px]">®</sup>
