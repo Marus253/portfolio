@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import animate from "tailwindcss-animate";
 
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
@@ -17,12 +16,7 @@ export default {
         stroke: "hsl(var(--stroke))",
         accent: "hsl(var(--accent))",
       },
-      animation: {
-        "scroll-down": "scroll-down 1.5s ease-in-out infinite",
-        "role-fade-in": "role-fade-in 0.4s ease-out",
-        "gradient-shift": "gradient-shift 6s ease infinite",
-      },
     },
   },
-  plugins: [animate],
+  plugins: [],
 } satisfies Config;

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import GradientButton from "../components/GradientButton";
+import Button from "../components/GradientButton";
 import PageHeader, { Container } from "../components/PageHeader";
+import Icon from "../components/Icon";
 import PageTransition from "../components/PageTransition";
 import { Em } from "../components/SectionHeader";
 import { education, experience, languages, profile, skills } from "../data/profile";
@@ -10,7 +11,7 @@ import { useTitle } from "../lib/scroll";
 function Row({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="grid gap-4 border-t border-stroke py-8 md:grid-cols-[200px_1fr] md:gap-10">
-      <h2 className="text-xs uppercase tracking-[0.25em] text-muted">{title}</h2>
+      <h2 className="text-xs text-muted">{title}</h2>
       <div>{children}</div>
     </section>
   );
@@ -32,12 +33,12 @@ export default function Resume() {
           }
           sub={`${profile.title} · Python, Django, FastAPI · ${profile.city}`}
         >
-          <GradientButton variant="solid" href={profile.cv} download>
-            Télécharger le CV (PDF) ↓
-          </GradientButton>
-          <GradientButton variant="outline" to="/projets">
+          <Button variant="solid" href={profile.cv} download icon="download">
+            Télécharger le CV (PDF)
+          </Button>
+          <Button variant="outline" to="/projets">
             Voir mes projets techniques
-          </GradientButton>
+          </Button>
         </PageHeader>
 
         <Container className="pb-12">
@@ -105,12 +106,15 @@ export default function Resume() {
         </Container>
 
         <Container className="pb-24">
-          <details className="group rounded-3xl border border-stroke bg-surface/40">
+          <details className="group rounded-2xl border border-stroke">
             <summary className="cursor-pointer list-none px-6 py-5 text-sm text-text-primary">
-              <span className="group-open:hidden">Afficher l'aperçu du PDF ↓</span>
-              <span className="hidden group-open:inline">Masquer l'aperçu ↑</span>
+              <span className="inline-flex items-center gap-2">
+                <span className="group-open:hidden">Afficher l'aperçu du PDF</span>
+                <span className="hidden group-open:inline">Masquer l'aperçu</span>
+                <Icon name="chevron-down" className="transition-transform group-open:rotate-180" />
+              </span>
             </summary>
-            <object data={profile.cv} type="application/pdf" className="h-[80vh] w-full rounded-b-3xl" aria-label={`CV de ${profile.fullName}`}>
+            <object data={profile.cv} type="application/pdf" className="h-[80vh] w-full rounded-b-2xl" aria-label={`CV de ${profile.fullName}`}>
               <p className="p-6 text-sm text-muted">
                 L'aperçu n'est pas disponible sur cet appareil.{" "}
                 <a href={profile.cv} className="underline">

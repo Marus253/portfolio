@@ -18,8 +18,8 @@ export const NEEDS = [
 type State = "idle" | "sending" | "sent" | "error";
 
 const field =
-  "w-full rounded-2xl border border-stroke bg-bg px-4 py-3 text-sm text-text-primary placeholder:text-muted/70 transition-colors focus:border-[#4E85BF] focus:outline-none";
-const label = "mb-2 block text-xs uppercase tracking-[0.15em] text-muted";
+  "w-full rounded-lg border border-stroke bg-bg px-4 py-3 text-sm text-text-primary placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none";
+const label = "mb-2 block text-xs text-muted";
 
 export default function ContactForm({ defaultNeed = "application-metier" }: { defaultNeed?: string }) {
   const [state, setState] = useState<State>("idle");
@@ -55,7 +55,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
 
   if (state === "sent") {
     return (
-      <div role="status" className="rounded-3xl border border-stroke bg-surface p-8 text-center md:p-12">
+      <div role="status" className="rounded-2xl border border-stroke p-8 text-center md:p-12">
         <p className="font-display text-4xl italic">Merci !</p>
         <p className="mx-auto mt-4 max-w-md text-muted">
           Votre message est bien parti. Je vous réponds à l'adresse indiquée — {profile.responseTime.toLowerCase()}.
@@ -68,7 +68,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 rounded-3xl border border-stroke bg-surface p-6 md:grid-cols-2 md:p-10" noValidate={false}>
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-stroke bg-surface p-6 md:grid-cols-2 md:p-10" noValidate={false}>
       <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
       <div className="md:col-span-2">
@@ -79,7 +79,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
           {NEEDS.map((n) => (
             <label
               key={n.value}
-              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
+              className={`cursor-pointer rounded-lg border px-3.5 py-2 text-sm transition-colors ${
                 need === n.value ? "border-transparent bg-text-primary text-bg" : "border-stroke text-muted hover:text-text-primary"
               }`}
             >
@@ -166,7 +166,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
         <div className="flex gap-4 text-sm text-muted">
           {["Français", "English"].map((l, i) => (
             <label key={l} className="flex cursor-pointer items-center gap-2">
-              <input type="radio" name="langue" value={l} defaultChecked={i === 0} className="accent-[#4E85BF]" />
+              <input type="radio" name="langue" value={l} defaultChecked={i === 0} className="accent-[hsl(var(--accent))]" />
               {l}
             </label>
           ))}
@@ -183,14 +183,14 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
         <button
           type="submit"
           disabled={state === "sending"}
-          className="whitespace-nowrap rounded-full bg-text-primary px-8 py-3.5 text-sm font-medium text-bg transition-transform hover:scale-105 disabled:opacity-60"
+          className="whitespace-nowrap rounded-lg bg-text-primary px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-text-primary/85 disabled:opacity-60"
         >
           {state === "sending" ? "Envoi…" : "Envoyer ma demande"}
         </button>
       </div>
 
       {state === "error" && (
-        <p role="alert" className="rounded-2xl border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-100 md:col-span-2">
+        <p role="alert" className="rounded-lg border border-rose-400/30 bg-rose-400/10 p-4 text-sm text-rose-100 md:col-span-2">
           L'envoi n'a pas abouti. Écrivez-moi directement à{" "}
           <a className="underline" href={`mailto:${profile.email}`}>
             {profile.email}

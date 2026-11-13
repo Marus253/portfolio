@@ -16,7 +16,7 @@ export default function App() {
   const location = useLocation();
   return (
     <>
-      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-text-primary focus:px-4 focus:py-2 focus:text-bg">
+      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-text-primary focus:px-4 focus:py-2 focus:text-bg">
         Aller au contenu
       </a>
       <Navbar />

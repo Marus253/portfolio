@@ -1,4 +1,5 @@
 import type { Visual } from "../data/projects";
+import Icon from "./Icon";
 
 // Visuels génératifs (pas de photos de stock) : chaque projet a sa propre maquette abstraite.
 
@@ -39,15 +40,14 @@ function QR({ size = 21, seed = 7 }: { size?: number; seed?: number }) {
 
 function Sigir() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_30%_20%,#22344a_0%,#0d131b_55%,#0a0a0a_100%)]">
-      <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#fff_1px,transparent_1px),linear-gradient(90deg,#fff_1px,transparent_1px)] [background-size:40px_40px]" />
-      <div className="relative w-[68%] max-w-[420px] -rotate-3 rounded-2xl border border-white/10 bg-[#111821]/90 p-5 shadow-2xl shadow-black/60 md:p-7">
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319]">
+      <div className="relative w-[68%] max-w-[420px] rounded-2xl border border-white/10 bg-[#111821]/90 p-5 md:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[9px] uppercase tracking-[0.25em] text-[#89AACC] md:text-[10px]">Avis de contravention</p>
+            <p className="text-[9px] uppercase tracking-[0.25em] text-accent md:text-[10px]">Avis de contravention</p>
             <p className="mt-1 font-mono text-[11px] text-white/50 md:text-xs">N° 2026-004127</p>
           </div>
-          <span className="rounded-full bg-emerald-400/10 px-2.5 py-1 text-[9px] text-emerald-300 md:text-[10px]">Payé</span>
+          <span className="rounded bg-emerald-400/10 px-2.5 py-1 text-[9px] text-emerald-300 md:text-[10px]">Payé</span>
         </div>
         <div className="mt-4 flex items-end justify-between gap-4 md:mt-6">
           <div className="space-y-2">
@@ -68,25 +68,24 @@ function Sigir() {
 
 function Vision() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_70%_80%,#1b2a3c_0%,#0b0f14_60%,#0a0a0a_100%)]">
-      <div className="absolute inset-0 opacity-[0.05] [background-image:repeating-linear-gradient(0deg,#fff_0_1px,transparent_1px_4px)]" />
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319]">
       <div className="relative">
-        <div className="rounded-lg border-2 border-white/80 bg-[#e9edf1] px-6 py-3 shadow-xl shadow-black/50 md:px-8 md:py-4">
+        <div className="rounded-lg border-2 border-white/80 bg-[#e9edf1] px-6 py-3 md:px-8 md:py-4">
           <p className="font-mono text-2xl font-bold tracking-[0.15em] text-[#141414] md:text-4xl">4521 AB 01</p>
         </div>
-        <span className="absolute -inset-4 rounded-md border border-[#89AACC]" />
+        <span className="absolute -inset-4 rounded-md border border-accent" />
         {[
           "-left-5 -top-5 border-l-2 border-t-2",
           "-right-5 -top-5 border-r-2 border-t-2",
           "-bottom-5 -left-5 border-b-2 border-l-2",
           "-bottom-5 -right-5 border-b-2 border-r-2",
         ].map((c) => (
-          <span key={c} className={`absolute h-4 w-4 border-[#89AACC] ${c}`} />
+          <span key={c} className={`absolute h-4 w-4 border-accent ${c}`} />
         ))}
-        <span className="absolute -top-11 left-[-1rem] rounded bg-[#4E85BF] px-2 py-0.5 font-mono text-[10px] text-white">
+        <span className="absolute -top-11 left-[-1rem] rounded bg-accent text-bg px-2 py-0.5 font-mono text-[10px] text-white">
           plaque · 0.97
         </span>
-        <span className="absolute -bottom-11 left-[-1rem] font-mono text-[10px] text-white/50">ocr → "4521AB01"</span>
+        <span className="absolute -bottom-11 left-[-1rem] font-mono text-[10px] text-white/50">ocr : "4521AB01"</span>
       </div>
     </div>
   );
@@ -100,10 +99,10 @@ function Pharma() {
     { name: "Ibuprofène 400 mg", qty: 38, exp: "12/26", w: "14%", warn: true },
   ];
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_20%_80%,#1d2b36_0%,#0c1115_60%,#0a0a0a_100%)] p-6">
-      <div className="w-full max-w-[360px] space-y-3 rounded-2xl border border-white/10 bg-[#10161b]/90 p-5 shadow-2xl shadow-black/50">
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319] p-6">
+      <div className="w-full max-w-[360px] space-y-3 rounded-2xl border border-white/10 bg-[#10161b]/90 p-5">
         <div className="flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-[0.25em] text-[#89AACC]">Stock</p>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-accent">Stock</p>
           <p className="text-[10px] text-white/40">2 alertes péremption</p>
         </div>
         {rows.map((r) => (
@@ -113,7 +112,7 @@ function Pharma() {
               <span className={r.warn ? "text-amber-300/90" : "text-white/40"}>exp. {r.exp}</span>
             </div>
             <div className="h-1 rounded-full bg-white/10">
-              <div className={`h-full rounded-full ${r.warn ? "bg-amber-300/70" : "accent-gradient"}`} style={{ width: r.w }} />
+              <div className={`h-full rounded-full ${r.warn ? "bg-amber-300/70" : "bg-accent"}`} style={{ width: r.w }} />
             </div>
           </div>
         ))}
@@ -124,8 +123,8 @@ function Pharma() {
 
 function Hospital() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_80%_20%,#1f2f42_0%,#0c1117_55%,#0a0a0a_100%)] p-6 md:p-10">
-      <div className="flex h-[72%] w-[86%] max-w-[560px] overflow-hidden rounded-xl border border-white/10 bg-[#0f141a] shadow-2xl shadow-black/60">
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319] p-6 md:p-10">
+      <div className="flex h-[72%] w-[86%] max-w-[560px] overflow-hidden rounded-xl border border-white/10 bg-[#0f141a]">
         <div className="hidden w-1/4 flex-col gap-2 border-r border-white/5 bg-white/[0.02] p-3 sm:flex">
           <div className="mb-2 flex gap-1">
             {[0, 1, 2].map((i) => (
@@ -133,7 +132,7 @@ function Hospital() {
             ))}
           </div>
           {["Accueil", "Patients", "Consultations", "Pharmacie", "Caisse"].map((l, i) => (
-            <span key={l} className={`rounded px-2 py-1 text-[10px] ${i === 1 ? "bg-[#4E85BF]/25 text-white" : "text-white/40"}`}>
+            <span key={l} className={`rounded px-2 py-1 text-[10px] ${i === 1 ? "bg-white/10 text-white" : "text-white/40"}`}>
               {l}
             </span>
           ))}
@@ -141,14 +140,14 @@ function Hospital() {
         <div className="flex-1 p-4">
           <div className="mb-3 flex items-center justify-between">
             <p className="font-display text-lg italic text-white md:text-xl">Patients</p>
-            <span className="rounded-full bg-white/5 px-2 py-0.5 text-[9px] text-white/50">hors-ligne prêt</span>
+            <span className="rounded bg-white/5 px-2 py-0.5 text-[9px] text-white/50">hors-ligne prêt</span>
           </div>
           <div className="space-y-2">
             {[70, 52, 64, 45, 58].map((w, i) => (
               <div key={i} className="flex items-center gap-3 rounded-md bg-white/[0.03] px-3 py-2">
                 <span className="h-5 w-5 rounded-full bg-white/10" />
                 <span className="h-1.5 rounded-full bg-white/15" style={{ width: `${w}%` }} />
-                <span className={`ml-auto h-1.5 w-8 rounded-full ${i === 1 ? "accent-gradient" : "bg-white/10"}`} />
+                <span className={`ml-auto h-1.5 w-8 rounded-full ${i === 1 ? "bg-accent" : "bg-white/10"}`} />
               </div>
             ))}
           </div>
@@ -162,11 +161,11 @@ function Hospital() {
 function Bma() {
   const bars = [42, 64, 51, 78, 60, 88, 72];
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_25%_25%,#26364a_0%,#0d1218_55%,#0a0a0a_100%)] p-6 md:p-10">
-      <div className="flex h-[74%] w-[88%] max-w-[560px] flex-col gap-3 rounded-xl border border-white/10 bg-[#0f141a] p-4 shadow-2xl shadow-black/60">
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319] p-6 md:p-10">
+      <div className="flex h-[74%] w-[88%] max-w-[560px] flex-col gap-3 rounded-xl border border-white/10 bg-[#0f141a] p-4">
         <div className="flex items-center justify-between">
           <p className="font-display text-lg italic text-white md:text-xl">Inscriptions</p>
-          <span className="rounded-full bg-white/5 px-2 py-0.5 text-[9px] text-white/50">Administration</span>
+          <span className="rounded bg-white/5 px-2 py-0.5 text-[9px] text-white/50">Administration</span>
         </div>
         <div className="grid grid-cols-3 gap-2">
           {[["Apprenants", "—"], ["Formations", "—"], ["Sessions", "—"]].map(([k, v]) => (
@@ -178,7 +177,7 @@ function Bma() {
         </div>
         <div className="flex flex-1 items-end gap-2 rounded-lg bg-white/[0.02] p-3">
           {bars.map((h, i) => (
-            <span key={i} className={`flex-1 rounded-t ${i === 5 ? "accent-gradient" : "bg-white/15"}`} style={{ height: `${h}%` }} />
+            <span key={i} className={`flex-1 rounded-t ${i === 5 ? "bg-accent" : "bg-white/15"}`} style={{ height: `${h}%` }} />
           ))}
         </div>
       </div>
@@ -195,8 +194,8 @@ function SecPipeline() {
     { n: "deploy", ok: null },
   ];
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(ellipse_at_50%_100%,#22344a_0%,#0c1117_60%,#0a0a0a_100%)] p-6">
-      <div className="w-full max-w-[460px] rounded-xl border border-white/10 bg-[#0f141a]/95 p-5 font-mono shadow-2xl shadow-black/60">
+    <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319] p-6">
+      <div className="w-full max-w-[460px] rounded-xl border border-white/10 bg-[#0f141a]/95 p-5 font-mono">
         <p className="mb-4 text-[10px] text-white/40">.github/workflows/secpipeline.yml</p>
         <div className="flex items-center">
           {steps.map((s, i) => (
@@ -207,7 +206,7 @@ function SecPipeline() {
                     s.ok === true ? "bg-emerald-400/15 text-emerald-300" : s.ok === false ? "bg-rose-400/15 text-rose-300" : "bg-white/5 text-white/30"
                   }`}
                 >
-                  {s.ok === true ? "✓" : s.ok === false ? "✕" : "·"}
+                  {s.ok === null ? null : <Icon name={s.ok ? "check" : "x"} size={12} />}
                 </span>
                 <span className="text-[9px] text-white/50 md:text-[10px]">{s.n}</span>
               </div>

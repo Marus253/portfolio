@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import Icon, { type IconName } from "./Icon";
 
 type Props = {
   children: ReactNode;
@@ -7,48 +8,37 @@ type Props = {
   to?: string;
   onClick?: () => void;
   variant?: "solid" | "outline" | "ghost";
+  icon?: IconName;
   className?: string;
   download?: boolean;
   external?: boolean;
 };
 
-// Bouton pilule avec anneau dégradé animé au survol
-export default function GradientButton({ children, href, to, onClick, variant = "outline", className = "", download, external }: Props) {
-  const base =
-    "group relative inline-flex items-center justify-center gap-2 rounded-full text-sm transition-all duration-300 hover:scale-105";
+// Bouton à plat : fond plein, contour ou discret. Le fichier garde son ancien nom
+// pour ne pas casser les imports ; il n'y a plus de dégradé.
+export default function Button({ children, href, to, onClick, variant = "outline", icon, className = "", download, external }: Props) {
   const skin =
     variant === "solid"
-      ? "bg-text-primary text-bg hover:bg-bg hover:text-text-primary"
+      ? "bg-text-primary text-bg hover:bg-text-primary/85"
       : variant === "outline"
-        ? "border-2 border-stroke bg-bg text-text-primary hover:border-transparent"
-        : "border border-stroke bg-surface text-text-primary hover:border-transparent";
-  const size = variant === "ghost" ? "px-5 py-2.5" : "px-7 py-3.5";
-
+        ? "border border-stroke text-text-primary hover:border-muted"
+        : "text-text-primary underline-offset-4 hover:underline";
+  const size = variant === "ghost" ? "py-2" : "px-5 py-3";
+  const cls = `inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-colors duration-150 ${skin} ${size} ${className}`;
   const inner = (
     <>
-      <span
-        aria-hidden
-        className="accent-gradient-animated pointer-events-none absolute -inset-[2px] -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-      />
       {children}
+      {icon && <Icon name={icon} />}
     </>
   );
 
-  const cls = `${base} ${skin} ${size} isolate ${className}`;
-  if (to) {
-    return (
-      <Link to={to} className={cls}>
-        {inner}
-      </Link>
-    );
-  }
-  if (href) {
+  if (to) return <Link to={to} className={cls}>{inner}</Link>;
+  if (href)
     return (
       <a href={href} className={cls} download={download} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
         {inner}
       </a>
     );
-  }
   return (
     <button type="button" onClick={onClick} className={cls}>
       {inner}

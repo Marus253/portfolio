@@ -37,7 +37,7 @@ export default function Privacy() {
           </section>
           <section>
             <h2 className="mb-2 text-lg font-medium">Contenus externes</h2>
-            <p>La page d'accueil affiche une vidéo d'ambiance diffusée par Mux et utilise les polices Google Fonts.</p>
+            <p>Le site charge ses polices depuis Google Fonts.</p>
           </section>
         </Container>
       </main>
