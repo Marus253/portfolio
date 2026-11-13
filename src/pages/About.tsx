@@ -4,7 +4,6 @@ import Button from "../components/GradientButton";
 import Icon from "../components/Icon";
 import PageHeader, { Container } from "../components/PageHeader";
 import PageTransition from "../components/PageTransition";
-import ProjectVisual from "../components/ProjectVisual";
 import SectionHeader, { Em } from "../components/SectionHeader";
 import { education, experience, intro, method, profile, skillLevels, skills, type SkillLevel } from "../data/profile";
 import { projects, statusLabel } from "../data/projects";
@@ -28,28 +27,14 @@ export default function About() {
   return (
     <PageTransition>
       <main id="contenu">
-        <PageHeader eyebrow="À propos" title="À propos" />
-
-        {/* Bande d'images : portrait + visuels de projets */}
-        <Container className="grid grid-cols-2 gap-3 md:grid-cols-4">
-          <img src={profile.photo} alt={`Portrait de ${profile.fullName}`} className="aspect-[3/4] w-full rounded-2xl object-cover object-top" />
-          {projects.slice(0, 3).map((p, i) => (
-            <Link
-              key={p.slug}
-              to={`/projets/${p.slug}`}
-              aria-label={p.title}
-              className={`relative aspect-[3/4] overflow-hidden rounded-2xl border border-stroke bg-surface ${i === 2 ? "hidden md:block" : ""}`}
-            >
-              <ProjectVisual visual={p.visual} />
-            </Link>
-          ))}
-        </Container>
+        <PageHeader title="À propos" />
 
         {/* Déclaration + chiffres */}
-        <section className="py-20 md:py-28">
-          <Container className="grid gap-10 md:grid-cols-[220px_1fr]">
+        <section className="pb-20 md:pb-28">
+          <Container className="grid gap-10 md:grid-cols-[minmax(0,320px)_1fr] md:gap-16">
             <div>
-              <span className="eyebrow">Qui je suis</span>
+              <img src={profile.photo} alt={`Portrait de ${profile.fullName}`} className="aspect-[4/5] w-full rounded-2xl object-cover object-top" />
+              <p className="mt-3 text-sm text-muted">{profile.city}</p>
             </div>
             <div>
               <h2 className="font-display text-balance text-[2.4rem] sm:text-6xl lg:text-7xl">
@@ -63,7 +48,7 @@ export default function About() {
               <div className="mt-14 grid gap-8 border-t border-stroke pt-10 sm:grid-cols-3">
                 {stats.map((s) => (
                   <div key={s.l}>
-                    <p className="font-display text-7xl text-transparent [-webkit-text-stroke:1px_hsl(var(--muted))]">{s.n}</p>
+                    <p className="font-display text-6xl">{s.n}</p>
                     <p className="mt-4 text-sm font-medium">{s.l}</p>
                     <p className="mt-1 text-sm text-muted">{s.d}</p>
                   </div>
@@ -82,7 +67,7 @@ export default function About() {
         </section>
 
         {/* Parcours : expérience + formation, en cartes sombres */}
-        <section className="border-y border-stroke bg-surface py-20 md:py-28">
+        <section className="border-t border-stroke py-20 md:py-28">
           <Container>
             <SectionHeader
               eyebrow="Parcours"
@@ -92,33 +77,43 @@ export default function About() {
                 </>
               }
             />
-            <div className="grid gap-3 md:grid-cols-2">
-              {experience.map((e) => (
-                <article key={e.org} className="flex flex-col justify-between gap-8 rounded-2xl border border-stroke bg-bg p-7 md:col-span-2 md:flex-row">
-                  <div className="md:w-1/3">
-                    <p className="text-xs uppercase tracking-wide text-accent">Expérience · {e.period}</p>
-                    <h3 className="font-display mt-3 text-2xl">{e.role}</h3>
-                    <p className="mt-1 text-sm text-muted">{e.org}</p>
-                  </div>
-                  <ul className="space-y-2 text-sm leading-relaxed text-text-primary/85 md:w-1/2">
-                    {e.points.map((pt) => (
-                      <li key={pt} className="flex gap-2">
-                        <Icon name="minus" size={14} className="mt-1 text-muted" />
-                        {pt}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-              {education.map((e) => (
-                <article key={e.title} className="flex flex-col justify-between gap-10 rounded-2xl border border-stroke bg-bg p-7">
-                  <p className="text-xs uppercase tracking-wide text-muted">Formation · {e.period}</p>
-                  <div>
-                    <h3 className="font-display text-xl">{e.title}</h3>
-                    <p className="mt-2 text-sm text-muted">{e.place}</p>
-                  </div>
-                </article>
-              ))}
+            <div className="grid gap-12 md:grid-cols-2">
+              <div>
+                <h3 className="eyebrow mb-4">Expérience</h3>
+                <ul className="border-t border-stroke">
+                  {experience.map((e) => (
+                    <li key={e.org} className="border-b border-stroke py-6">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="font-display text-2xl">{e.role}</p>
+                        <p className="text-sm text-muted">{e.period}</p>
+                      </div>
+                      <p className="mt-1 text-sm text-muted">{e.org}</p>
+                      <ul className="mt-4 space-y-2 text-sm leading-relaxed text-text-primary/85">
+                        {e.points.map((pt) => (
+                          <li key={pt} className="flex gap-2">
+                            <Icon name="minus" size={14} className="mt-1 shrink-0 text-muted" />
+                            {pt}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="eyebrow mb-4">Formation</h3>
+                <ul className="border-t border-stroke">
+                  {education.map((e) => (
+                    <li key={e.title} className="border-b border-stroke py-6">
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="font-medium">{e.title}</p>
+                        <p className="text-sm text-muted">{e.period}</p>
+                      </div>
+                      <p className="mt-1 text-sm text-muted">{e.place}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </Container>
         </section>

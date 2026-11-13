@@ -13,7 +13,6 @@ export default function Projects() {
     <PageTransition>
       <main id="contenu">
         <PageHeader
-          eyebrow="Projets"
           title="Projets"
           sub="Pour chaque projet : le problème, mon rôle, l'architecture, la qualité et les limites. Les états sont indiqués tels qu'ils sont — fonctionnel, en cours ou en construction."
         />

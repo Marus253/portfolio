@@ -21,7 +21,6 @@ export default function Services() {
     <PageTransition>
       <main id="contenu">
         <PageHeader
-          eyebrow="Services"
           title="Services"
           sub="Trois types de prestations, avec un périmètre clair. Le délai et le prix sont fixés après un premier échange de cadrage, jamais au hasard."
         >
@@ -32,28 +31,19 @@ export default function Services() {
 
         <Container className="space-y-3 pb-16">
           {services.map((s, i) => (
-            <article id={s.id} key={s.id} className="scroll-mt-28 rounded-3xl border border-stroke bg-surface p-7 md:p-12">
+            <article id={s.id} key={s.id} className="scroll-mt-28 rounded-3xl bg-surface p-7 md:p-12">
               <div className="grid gap-6 md:grid-cols-2 md:gap-12">
                 <div>
-                  <p className="flex items-center gap-2 text-xs tabular-nums text-muted">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    {String(i + 1).padStart(3, "0")}
-                  </p>
+                  <p className="text-sm tabular-nums text-muted">{String(i + 1).padStart(2, "0")}</p>
                   <h2 className="font-display mt-4 text-4xl text-accent md:text-6xl">{s.title}</h2>
                 </div>
                 <div className="md:pt-8">
-                  <p className="text-base font-semibold uppercase leading-snug tracking-tight md:text-xl">{s.pitch}</p>
+                  <p className="text-lg leading-snug md:text-xl">{s.pitch}</p>
                   <p className="mt-3 text-xs text-muted">{s.stack}</p>
                   <div className="mt-6">
-                    <Link
-                      to={`/contact?besoin=${s.id}`}
-                      className="group inline-flex items-center gap-3 rounded-full bg-accent py-1.5 pl-4 pr-1.5 text-xs font-semibold uppercase tracking-wide text-bg"
-                    >
+                    <Button variant="accent" to={`/contact?besoin=${s.id}`} icon="arrow-right">
                       Demander un devis
-                      <span className="grid h-7 w-7 place-items-center rounded-full bg-bg text-text-primary transition-transform group-hover:rotate-45">
-                        <Icon name="arrow-up-right" size={14} />
-                      </span>
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -92,11 +82,11 @@ export default function Services() {
               </div>
             </article>
           ))}
-          <p className="rounded-2xl border border-stroke p-5 text-sm text-muted">{securityNote}</p>
+          <p className="pt-4 text-sm text-muted">{securityNote}</p>
         </Container>
 
-        <Container className="grid gap-3 pb-8 md:grid-cols-2">
-          <div className="rounded-3xl border border-stroke p-7 md:p-10">
+        <Container className="grid gap-6 pb-8 md:grid-cols-2 md:gap-12">
+          <div className="py-7 md:py-10">
             <h2 className="font-display text-3xl">Comment ça se passe</h2>
             <ol className="mt-6 space-y-4">
               {method.map((m, i) => (

@@ -55,7 +55,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
 
   if (state === "sent") {
     return (
-      <div role="status" className="rounded-2xl border border-stroke p-8 text-center md:p-12">
+      <div role="status" className="rounded-3xl bg-surface p-8 text-center md:p-12">
         <p className="font-display text-4xl">Merci !</p>
         <p className="mx-auto mt-4 max-w-md text-muted">
           Votre message est bien parti. Je vous réponds à l'adresse indiquée — {profile.responseTime.toLowerCase()}.
@@ -68,7 +68,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 rounded-2xl border border-stroke bg-surface p-6 md:grid-cols-2 md:p-10" noValidate={false}>
+    <form onSubmit={onSubmit} className="grid gap-5 rounded-3xl bg-surface p-6 md:grid-cols-2 md:p-10" noValidate={false}>
       <input type="text" name="_honey" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
 
       <div className="md:col-span-2">
@@ -79,7 +79,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
           {NEEDS.map((n) => (
             <label
               key={n.value}
-              className={`cursor-pointer rounded-lg border px-3.5 py-2 text-sm transition-colors ${
+              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${
                 need === n.value ? "border-transparent bg-text-primary text-bg" : "border-stroke text-muted hover:text-text-primary"
               }`}
             >
@@ -183,7 +183,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
         <button
           type="submit"
           disabled={state === "sending"}
-          className="whitespace-nowrap rounded-lg bg-text-primary px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-text-primary/85 disabled:opacity-60"
+          className="whitespace-nowrap rounded-full bg-text-primary px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-text-primary/85 disabled:opacity-60"
         >
           {state === "sending" ? "Envoi…" : "Envoyer ma demande"}
         </button>

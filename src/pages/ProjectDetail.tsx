@@ -5,7 +5,6 @@ import Button from "../components/GradientButton";
 import { Container, Reveal } from "../components/PageHeader";
 import Icon from "../components/Icon";
 import PageTransition from "../components/PageTransition";
-import ProjectVisual from "../components/ProjectVisual";
 import { findProject, projects, statusLabel } from "../data/projects";
 import { useTitle } from "../lib/scroll";
 import NotFound from "./NotFound";
@@ -96,13 +95,6 @@ export default function ProjectDetail() {
           </p>
           <h1 className="mt-6 font-display text-5xl leading-none md:text-7xl lg:text-8xl">{p.title}</h1>
           <p className="mt-4 text-lg text-muted md:text-xl">{p.tagline}</p>
-        </Container>
-
-        <Container className="mt-12">
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-stroke md:aspect-[21/9]">
-            <ProjectVisual visual={p.visual} />
-          </div>
-          {!p.screenshots.length && <p className="mt-3 text-xs text-muted">Illustration schématique — les captures réelles seront ajoutées ici.</p>}
         </Container>
 
         <Container className="mt-12">

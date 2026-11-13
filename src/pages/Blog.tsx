@@ -3,43 +3,34 @@ import CreateTogether from "../components/CreateTogether";
 import Icon from "../components/Icon";
 import PageHeader, { Container } from "../components/PageHeader";
 import PageTransition from "../components/PageTransition";
-import { findPost, formatDate, posts, type Post } from "../data/posts";
+import { findPost, formatDate, posts } from "../data/posts";
 import { useTitle } from "../lib/scroll";
 import NotFound from "./NotFound";
-
-// Vignette typographique : pas besoin d'image pour chaque note.
-function Cover({ post, i }: { post: Post; i: number }) {
-  const tones = ["bg-accent text-bg", "bg-surface text-text-primary", "bg-text-primary text-bg"];
-  return (
-    <div className={`relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-2xl p-6 ${tones[i % tones.length]}`}>
-      <span className="w-fit rounded-full border border-current px-3 py-1 text-[11px] font-medium uppercase tracking-wide opacity-80">{post.tag}</span>
-      <p className="font-display text-3xl leading-[0.95] md:text-4xl">{post.title}</p>
-    </div>
-  );
-}
 
 export function BlogList() {
   useTitle("Notes", "Notes et retours d'expérience de Warren Musau : backend, sécurité, DevSecOps.");
   return (
     <PageTransition>
       <main id="contenu">
-        <PageHeader eyebrow="Notes & veille" title="Notes" sub="Retours d'expérience tirés de mes projets : backend, sécurité applicative et DevSecOps." />
-        <Container className="grid gap-x-6 gap-y-14 pb-24 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((p, i) => (
-            <Link key={p.slug} to={`/notes/${p.slug}`} className="group flex flex-col gap-5">
-              <div className="transition-transform duration-300 group-hover:-translate-y-1">
-                <Cover post={p} i={i} />
-              </div>
-              <div>
-                <h2 className="text-lg font-medium uppercase leading-snug tracking-tight transition-colors group-hover:text-accent">{p.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{p.excerpt}</p>
-                <p className="mt-4 flex justify-between text-xs text-muted">
-                  <span>Par Warren Musau</span>
-                  <time dateTime={p.date}>{formatDate(p.date)}</time>
-                </p>
-              </div>
-            </Link>
-          ))}
+        <PageHeader title="Notes" sub="Retours d'expérience tirés de mes projets : backend, sécurité applicative et DevSecOps." />
+        <Container className="pb-24">
+          <ul className="border-t border-stroke">
+            {posts.map((p) => (
+              <li key={p.slug} className="border-b border-stroke">
+                <Link to={`/notes/${p.slug}`} className="group grid gap-3 py-8 md:grid-cols-[220px_1fr_auto] md:gap-10">
+                  <p className="text-sm text-muted">
+                    <time dateTime={p.date}>{formatDate(p.date)}</time>
+                    <span className="block">{p.tag}</span>
+                  </p>
+                  <div>
+                    <h2 className="font-display text-2xl transition-colors group-hover:text-accent md:text-4xl">{p.title}</h2>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{p.excerpt}</p>
+                  </div>
+                  <Icon name="arrow-right" size={20} className="hidden text-muted transition-all group-hover:translate-x-1 group-hover:text-accent md:block" />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Container>
         <CreateTogether />
       </main>

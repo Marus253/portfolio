@@ -1,21 +1,11 @@
 import type { ReactNode } from "react";
-import { profile } from "../data/profile";
 
-// En-tête de page : petit nom au-dessus, titre géant, « ©année — ville » à droite.
-export default function PageHeader({ eyebrow, title, sub, children }: { eyebrow: string; title: ReactNode; sub?: ReactNode; children?: ReactNode }) {
+// En-tête de page : un intitulé, puis le titre en grand.
+export default function PageHeader({ eyebrow, title, sub, children }: { eyebrow?: string; title: ReactNode; sub?: ReactNode; children?: ReactNode }) {
   return (
     <header className="mx-auto max-w-[1320px] px-6 pb-14 pt-32 md:px-10 md:pb-20 md:pt-40 lg:px-16">
-      <p className="mb-4 text-xs font-medium uppercase tracking-[0.12em] text-muted">
-        {profile.firstName}® · {eyebrow}
-      </p>
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <h1 className="font-display text-balance text-[3rem] sm:text-7xl lg:text-[7.5rem]">{title}</h1>
-        <p className="shrink-0 pb-2 text-xs text-muted md:text-right">
-          ©{new Date().getFullYear()}
-          <br />
-          {profile.city}
-        </p>
-      </div>
+      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+      <h1 className="font-display text-balance text-[3rem] sm:text-7xl lg:text-[7.5rem]">{title}</h1>
       {sub && <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{sub}</p>}
       {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
     </header>

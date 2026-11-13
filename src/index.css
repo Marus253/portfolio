@@ -47,15 +47,9 @@
     letter-spacing: -0.045em;
     line-height: 0.92;
   }
+  /* Petit intitulé de section : du texte, pas un badge */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-stroke px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-muted;
-  }
-  .eyebrow::before {
-    content: "";
-    @apply h-1.5 w-1.5 rounded-full bg-accent;
-  }
-  .chip {
-    @apply rounded-full border border-stroke px-3 py-1 text-xs text-muted;
+    @apply text-xs font-medium uppercase tracking-[0.08em] text-muted;
   }
 }
 
@@ -68,23 +62,9 @@
   }
 }
 
-/* Dégradé animé du bloc « Créons ensemble » (couleurs dérivées de l'accent) */
-.mesh {
-  background:
-    radial-gradient(60% 80% at 15% 20%, hsl(210 45% 45% / 0.9), transparent 60%),
-    radial-gradient(50% 70% at 85% 30%, hsl(230 40% 30% / 0.95), transparent 60%),
-    radial-gradient(70% 90% at 60% 100%, hsl(200 40% 60% / 0.7), transparent 60%),
-    hsl(220 30% 10%);
-  background-size: 140% 140%;
-  animation: mesh 18s ease-in-out infinite alternate;
-}
-@keyframes mesh {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
-}
-
-/* Rayons : bloc extérieur 16px (rounded-2xl) → élément intérieur 8px (rounded-lg)
-   quand l'écart entre les deux est de 8px ; 4px (rounded) quand il est de 12px. */
+/* Rayons concentriques : rayon intérieur = rayon extérieur − marge.
+   Bloc 24px (rounded-3xl) + marge 8px → 16px (rounded-2xl) ; bloc 16px + marge 8px → 8px (rounded-lg).
+   Champs et boutons hors de ces cas : rounded-lg / rounded-full. */
 
 @media (prefers-reduced-motion: reduce) {
   *,

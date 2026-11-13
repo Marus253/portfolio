@@ -60,12 +60,11 @@ export default function Footer() {
         <div className="mt-16 flex items-end justify-between gap-4">
           <p aria-hidden="true" style={{ fontSize: "clamp(4.2rem, 22vw, 21rem)" }} className="font-display -ml-[0.04em] select-none whitespace-nowrap normal-case leading-[0.8] tracking-[-0.06em] text-text-primary">
             {profile.lastName}
-            <sup className="align-super text-[0.2em] font-medium">®</sup>
           </p>
           <img
             src={profile.logo}
             alt=""
-            className="mb-[2%] w-[20vw] max-w-[15rem] shrink-0 rotate-6 transition-transform duration-500 hover:rotate-0"
+            className="mb-[2%] w-[18vw] max-w-[14rem] shrink-0"
           />
         </div>
       </div>
