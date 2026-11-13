@@ -54,7 +54,7 @@ function Sigir() {
             <div className="h-1.5 w-28 rounded-full bg-white/15 md:w-36" />
             <div className="h-1.5 w-20 rounded-full bg-white/10 md:w-28" />
             <div className="h-1.5 w-24 rounded-full bg-white/10 md:w-32" />
-            <p className="pt-2 font-display text-2xl italic text-white md:text-4xl">50 000 FC</p>
+            <p className="pt-2 font-display normal-case tracking-tight text-2xl text-white md:text-4xl">50 000 FC</p>
             <p className="text-[9px] text-white/40 md:text-[10px]">Mobile Money · reçu envoyé</p>
           </div>
           <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md md:h-24 md:w-24">
@@ -139,7 +139,7 @@ function Hospital() {
         </div>
         <div className="flex-1 p-4">
           <div className="mb-3 flex items-center justify-between">
-            <p className="font-display text-lg italic text-white md:text-xl">Patients</p>
+            <p className="font-display normal-case tracking-tight text-lg text-white md:text-xl">Patients</p>
             <span className="rounded bg-white/5 px-2 py-0.5 text-[9px] text-white/50">hors-ligne prêt</span>
           </div>
           <div className="space-y-2">
@@ -164,7 +164,7 @@ function Bma() {
     <div className="absolute inset-0 flex items-center justify-center bg-[#0e1319] p-6 md:p-10">
       <div className="flex h-[74%] w-[88%] max-w-[560px] flex-col gap-3 rounded-xl border border-white/10 bg-[#0f141a] p-4">
         <div className="flex items-center justify-between">
-          <p className="font-display text-lg italic text-white md:text-xl">Inscriptions</p>
+          <p className="font-display normal-case tracking-tight text-lg text-white md:text-xl">Inscriptions</p>
           <span className="rounded bg-white/5 px-2 py-0.5 text-[9px] text-white/50">Administration</span>
         </div>
         <div className="grid grid-cols-3 gap-2">

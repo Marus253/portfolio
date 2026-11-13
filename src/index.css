@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --font-body: "Inter", system-ui, -apple-system, sans-serif;
-    --font-display: "Instrument Serif", Georgia, serif;
+    --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
 
     --bg: 0 0% 4%;
     --surface: 0 0% 8%;
@@ -39,10 +39,48 @@
   }
 }
 
+@layer components {
+  /* Titres façon « affiche » : capitales serrées, deux tons (texte + gris) */
+  .font-display {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-stroke px-3 py-1 text-[11px] font-medium uppercase tracking-[0.08em] text-muted;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-1.5 w-1.5 rounded-full bg-accent;
+  }
+  .chip {
+    @apply rounded-full border border-stroke px-3 py-1 text-xs text-muted;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .text-giant {
+    font-size: clamp(4.5rem, 19vw, 19rem);
+  }
+}
+
+/* Dégradé animé du bloc « Créons ensemble » (couleurs dérivées de l'accent) */
+.mesh {
+  background:
+    radial-gradient(60% 80% at 15% 20%, hsl(210 45% 45% / 0.9), transparent 60%),
+    radial-gradient(50% 70% at 85% 30%, hsl(230 40% 30% / 0.95), transparent 60%),
+    radial-gradient(70% 90% at 60% 100%, hsl(200 40% 60% / 0.7), transparent 60%),
+    hsl(220 30% 10%);
+  background-size: 140% 140%;
+  animation: mesh 18s ease-in-out infinite alternate;
+}
+@keyframes mesh {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
 /* Rayons : bloc extérieur 16px (rounded-2xl) → élément intérieur 8px (rounded-lg)

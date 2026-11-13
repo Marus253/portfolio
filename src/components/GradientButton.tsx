@@ -7,7 +7,7 @@ type Props = {
   href?: string;
   to?: string;
   onClick?: () => void;
-  variant?: "solid" | "outline" | "ghost";
+  variant?: "solid" | "outline" | "ghost" | "accent";
   icon?: IconName;
   className?: string;
   download?: boolean;
@@ -18,13 +18,15 @@ type Props = {
 // pour ne pas casser les imports ; il n'y a plus de dégradé.
 export default function Button({ children, href, to, onClick, variant = "outline", icon, className = "", download, external }: Props) {
   const skin =
-    variant === "solid"
+    variant === "accent"
+      ? "bg-accent text-bg hover:bg-accent/85"
+      : variant === "solid"
       ? "bg-text-primary text-bg hover:bg-text-primary/85"
       : variant === "outline"
         ? "border border-stroke text-text-primary hover:border-muted"
         : "text-text-primary underline-offset-4 hover:underline";
   const size = variant === "ghost" ? "py-2" : "px-5 py-3";
-  const cls = `inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-colors duration-150 ${skin} ${size} ${className}`;
+  const cls = `inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium transition-colors duration-150 ${skin} ${size} ${className}`;
   const inner = (
     <>
       {children}

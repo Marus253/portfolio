@@ -15,7 +15,7 @@ function Block({ title, children }: { title: string; children: ReactNode }) {
     <Reveal>
       <section className="grid gap-4 border-t border-stroke py-10 md:grid-cols-[220px_1fr] md:gap-10 md:py-14">
         <div>
-          <h2 className="font-display text-3xl italic">{title}</h2>
+          <h2 className="font-display text-3xl">{title}</h2>
         </div>
         <div className="text-base leading-relaxed text-text-primary/85">{children}</div>
       </section>
@@ -94,7 +94,7 @@ export default function ProjectDetail() {
           <p className="mt-8 text-sm text-muted">
             {statusLabel[p.status]} · {p.stack.join(", ")}
           </p>
-          <h1 className="mt-6 font-display text-5xl italic leading-none md:text-7xl lg:text-8xl">{p.title}</h1>
+          <h1 className="mt-6 font-display text-5xl leading-none md:text-7xl lg:text-8xl">{p.title}</h1>
           <p className="mt-4 text-lg text-muted md:text-xl">{p.tagline}</p>
         </Container>
 

@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
+import { BlogList, BlogPost } from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -27,6 +28,8 @@ export default function App() {
           <Route path="/projets/:slug" element={<ProjectDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/a-propos" element={<About />} />
+          <Route path="/notes" element={<BlogList />} />
+          <Route path="/notes/:slug" element={<BlogPost />} />
           <Route path="/cv" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/confidentialite" element={<Privacy />} />

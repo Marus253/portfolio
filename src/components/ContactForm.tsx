@@ -56,7 +56,7 @@ export default function ContactForm({ defaultNeed = "application-metier" }: { de
   if (state === "sent") {
     return (
       <div role="status" className="rounded-2xl border border-stroke p-8 text-center md:p-12">
-        <p className="font-display text-4xl italic">Merci !</p>
+        <p className="font-display text-4xl">Merci !</p>
         <p className="mx-auto mt-4 max-w-md text-muted">
           Votre message est bien parti. Je vous réponds à l'adresse indiquée — {profile.responseTime.toLowerCase()}.
         </p>

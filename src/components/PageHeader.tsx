@@ -1,21 +1,32 @@
 import type { ReactNode } from "react";
+import { profile } from "../data/profile";
 
+// En-tête de page : petit nom au-dessus, titre géant, « ©année — ville » à droite.
 export default function PageHeader({ eyebrow, title, sub, children }: { eyebrow: string; title: ReactNode; sub?: ReactNode; children?: ReactNode }) {
   return (
-    <header className="mx-auto max-w-[1200px] px-6 pb-12 pt-32 md:px-10 md:pb-16 md:pt-40 lg:px-16">
-      <p className="mb-4 text-sm text-muted">{eyebrow}</p>
-      <h1 className="max-w-4xl text-balance text-4xl font-medium tracking-tight md:text-6xl">{title}</h1>
-      {sub && <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{sub}</p>}
+    <header className="mx-auto max-w-[1320px] px-6 pb-14 pt-32 md:px-10 md:pb-20 md:pt-40 lg:px-16">
+      <p className="mb-4 text-xs font-medium uppercase tracking-[0.12em] text-muted">
+        {profile.firstName}® · {eyebrow}
+      </p>
+      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <h1 className="font-display text-balance text-[3rem] sm:text-7xl lg:text-[7.5rem]">{title}</h1>
+        <p className="shrink-0 pb-2 text-xs text-muted md:text-right">
+          ©{new Date().getFullYear()}
+          <br />
+          {profile.city}
+        </p>
+      </div>
+      {sub && <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{sub}</p>}
       {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
     </header>
   );
 }
 
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16 ${className}`}>{children}</div>;
+  return <div className={`mx-auto max-w-[1320px] px-6 md:px-10 lg:px-16 ${className}`}>{children}</div>;
 }
 
-// Les blocs n'apparaissent plus en fondu au défilement : le contenu est là, tout de suite.
+// Les blocs n'apparaissent pas en fondu au défilement : le contenu est là, tout de suite.
 export function Reveal({ children, className = "" }: { children: ReactNode; className?: string; delay?: number }) {
   return <div className={className}>{children}</div>;
 }

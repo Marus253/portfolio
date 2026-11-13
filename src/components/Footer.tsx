@@ -1,55 +1,73 @@
 import { Link } from "react-router-dom";
 import { profile, socials } from "../data/profile";
+import Button from "./GradientButton";
 import Icon from "./Icon";
+import { NAV_ITEMS } from "./Navbar";
 
-const PAGES = [
-  ["Projets", "/projets"],
-  ["Services", "/services"],
-  ["À propos", "/a-propos"],
-  ["CV", "/cv"],
-  ["Contact", "/contact"],
-  ["Confidentialité", "/confidentialite"],
-];
-
+// Pied de page : pitch + coordonnées, deux colonnes de liens, puis le nom en très grand.
 export default function Footer() {
   return (
-    <footer className="border-t border-stroke bg-bg py-12">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-6 md:grid-cols-[1.4fr_1fr_1fr] md:px-10 lg:px-16">
-        <div>
-          <p className="font-display text-2xl italic">{profile.fullName}</p>
-          <p className="mt-2 text-sm text-muted">
-            {profile.title} · {profile.city}
-          </p>
-          <p className="mt-6 text-xs text-muted">© {new Date().getFullYear()} · Site statique, sans cookies ni traceurs.</p>
+    <footer className="overflow-hidden border-t border-stroke bg-bg">
+      <div className="mx-auto max-w-[1320px] px-6 pt-16 md:px-10 md:pt-20 lg:px-16">
+        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr]">
+          <div>
+            <p className="max-w-sm text-sm leading-relaxed text-muted">
+              Des logiciels backend fiables, pensés pour <span className="text-text-primary">de vrais besoins métier</span> — avec la sécurité et les tests intégrés dès le départ.
+            </p>
+            <p className="mt-6 text-sm text-muted">{profile.phone}</p>
+            <a href={`mailto:${profile.email}`} className="mt-1 block text-base text-text-primary hover:underline">
+              {profile.email}
+            </a>
+            <div className="mt-6">
+              <Button variant="outline" href={profile.cv} download icon="download">
+                Télécharger le CV
+              </Button>
+            </div>
+          </div>
+
+          <nav aria-label="Pied de page">
+            <p className="mb-4 text-xs text-muted">Navigation</p>
+            <ul className="space-y-2 text-sm">
+              {[...NAV_ITEMS, { label: "Confidentialité", to: "/confidentialite" }].map((i) => (
+                <li key={i.to}>
+                  <Link to={i.to} className="text-text-primary/85 transition-colors hover:text-accent">
+                    {i.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="mb-4 text-xs text-muted">Réseaux</p>
+            <ul className="space-y-2 text-sm">
+              {socials.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    {...(s.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="inline-flex items-center gap-1.5 text-text-primary/85 transition-colors hover:text-accent"
+                  >
+                    {s.label}
+                    <Icon name="arrow-up-right" size={14} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <nav aria-label="Pied de page">
-          <p className="mb-3 text-sm font-medium">Pages</p>
-          <ul className="grid grid-cols-2 gap-2 text-sm">
-            {PAGES.map(([l, to]) => (
-              <li key={to}>
-                <Link to={to} className="text-muted transition-colors hover:text-text-primary">
-                  {l}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div>
-          <p className="mb-3 text-sm font-medium">Me joindre</p>
-          <ul className="flex flex-col gap-2 text-sm">
-            {socials.map((s) => (
-              <li key={s.label}>
-                <a
-                  href={s.href}
-                  {...(s.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="inline-flex items-center gap-1.5 text-muted transition-colors hover:text-text-primary"
-                >
-                  {s.label}
-                  <Icon name="arrow-up-right" size={14} />
-                </a>
-              </li>
-            ))}
-          </ul>
+
+        <p aria-hidden="true" style={{ fontSize: "clamp(5rem, 28vw, 27rem)" }} className="font-display mt-16 -ml-[0.04em] select-none whitespace-nowrap normal-case leading-[0.8] tracking-[-0.06em] text-text-primary">
+          {profile.lastName}
+          <sup className="align-super text-[0.2em] font-medium">®</sup>
+        </p>
+      </div>
+      <div className="border-t border-stroke">
+        <div className="mx-auto flex max-w-[1320px] flex-col gap-2 px-6 py-5 text-xs text-muted sm:flex-row sm:justify-between md:px-10 lg:px-16">
+          <p>
+            © {new Date().getFullYear()} {profile.fullName} · {profile.city}
+          </p>
+          <p>Site statique, sans cookies ni traceurs.</p>
         </div>
       </div>
     </footer>

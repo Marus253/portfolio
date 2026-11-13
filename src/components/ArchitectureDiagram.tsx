@@ -10,7 +10,7 @@ export default function ArchitectureDiagram({ nodes }: { nodes: ArchNode[] }) {
           <li key={n.label} className="flex flex-col items-center gap-3 md:flex-1 md:flex-row">
             <div className="w-full rounded-2xl border border-stroke px-5 py-4 text-center">
               <p className="text-xs text-muted">{n.label}</p>
-              <p className="mt-1 font-display text-xl italic text-text-primary">{n.detail}</p>
+              <p className="mt-1 font-display text-xl text-text-primary">{n.detail}</p>
             </div>
             {i < nodes.length - 1 && (
               <span className="text-accent">

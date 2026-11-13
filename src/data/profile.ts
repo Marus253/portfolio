@@ -56,7 +56,7 @@ export const experience: Experience[] = [
 ];
 
 export const education = [
-  { title: "Master 1 — Réseaux, Sécurité et Systèmes d'information", place: "Université Protestante au Congo (UPC), Kinshasa", period: "En cours" },
+  { title: "Master 2 — Réseaux, Sécurité et Systèmes d'information (RSSI)", place: "Université Protestante au Congo (UPC), Kinshasa", period: "En cours" },
   { title: "Licence en Sciences informatiques — Génie logiciel", place: "Université Protestante au Congo (UPC), Kinshasa", period: "2024 – 2025" },
   { title: "Diplôme d'État — Option scientifique", place: "ESGTK, Mbuji-Mayi", period: "2021" },
 ];

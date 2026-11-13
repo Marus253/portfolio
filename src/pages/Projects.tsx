@@ -2,7 +2,6 @@ import Button from "../components/GradientButton";
 import PageHeader, { Container } from "../components/PageHeader";
 import PageTransition from "../components/PageTransition";
 import ProjectCard from "../components/ProjectCard";
-import { Em } from "../components/SectionHeader";
 import { projects } from "../data/projects";
 import { useTitle } from "../lib/scroll";
 
@@ -15,24 +14,20 @@ export default function Projects() {
       <main id="contenu">
         <PageHeader
           eyebrow="Projets"
-          title={
-            <>
-              Études de <Em>cas</Em>
-            </>
-          }
+          title="Projets"
           sub="Pour chaque projet : le problème, mon rôle, l'architecture, la qualité et les limites. Les états sont indiqués tels qu'ils sont — fonctionnel, en cours ou en construction."
         />
         <Container className="pb-24">
-          <h2 className="mb-6 text-xs text-muted">Projets principaux</h2>
-          <div className="grid gap-10 md:grid-cols-3 md:gap-6">
+          <h2 className="eyebrow mb-8">Projets principaux</h2>
+          <div className="grid gap-10 md:grid-cols-2 md:gap-x-6 md:gap-y-14">
             {featured.map((p, i) => (
-              <ProjectCard key={p.slug} p={p} i={i} />
+              <ProjectCard key={p.slug} p={p} i={i} aspect="aspect-[16/10]" />
             ))}
           </div>
-          <h2 className="mb-6 mt-20 text-xs text-muted">Autres réalisations</h2>
-          <div className="grid gap-10 md:grid-cols-3 md:gap-6">
+          <h2 className="eyebrow mb-8 mt-24">Autres réalisations</h2>
+          <div className="grid gap-10 md:grid-cols-2 md:gap-x-6 md:gap-y-14">
             {others.map((p, i) => (
-              <ProjectCard key={p.slug} p={p} i={i} />
+              <ProjectCard key={p.slug} p={p} i={i} aspect="aspect-[16/10]" />
             ))}
           </div>
           <div className="mt-16 flex flex-wrap gap-3">
